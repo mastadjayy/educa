@@ -160,7 +160,7 @@ cython_debug/
 #.idea/
 
 # Misc
-*Notes.txt
+z_Notes.txt
 
 # Logs
 logs
