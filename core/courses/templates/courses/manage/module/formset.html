@@ -1,0 +1,22 @@
+{% extends "_base.html" %}
+
+{% block title %} | Edit "{{ course.title }}"{% endblock title %}
+
+{% block content %}
+<section class="bg-pink-600 h-full w-full flex flex-col gap-5 justify-center items-center">
+    <h1 class="text-2xl font-semibold text-gray-900">Edit "{{ course.title }}"</h1>
+
+    <div>
+        <h2 class="text-xl">Course modules</h2>
+    
+        <form method="post">
+            {{ formset }}
+            {{ formset.management_form }}
+            {% csrf_token %}
+            <input type="submit" value="Save modules" class="text-white bg-emerald-800 hover:bg-emerald-900 px-3 py-2 rounded-lg cursor-pointer">
+        </form>
+    </div>
+</section>
+
+
+{% endblock content %}

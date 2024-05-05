@@ -1,0 +1,18 @@
+{% extends "_base.html" %}
+
+{% block title %}
+    | Inscrivez-vous et commencez à apprendre
+{% endblock title %}
+
+{% block content %}
+    <h1>Inscrivez-vous et commencez à apprendre</h1>
+    <div class="module">
+        
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <p>
+                <input type="submit" value="S'inscrire" class="bg-emerald-800 hover:bg-emerald-900"></p>
+        </form>
+    </div>
+{% endblock content %}

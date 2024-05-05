@@ -1,0 +1,195 @@
+{% extends "_base.html" %}
+{% load static %}
+
+{% block title %}
+  {% if subject %}
+    {{ subject.title }} courses
+  {% else %}
+   | Apprenez à votre rythme
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="container mx-auto xl:px-0 flex flex-wrap">
+  <div class="flex items-center w-full lg:w-1/2">
+    <div class="max-w-2xl mb-8">
+
+      <h1 class="text-6xl b-text-bold leading-snug tracking-tight text-gray-800 lg:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight">
+        Un apprentissage qui vous fait évoluer
+      </h1>
+      <p class="py-5 text-base p-regular text-gray-500 lg:text-lg xl:text-base">
+        Obtenez les compétences pour atteindre vos objectifs et rester compétitif
+      </p>
+
+    </div>
+  </div>
+
+  <div class="flex items-center justify-center w-full lg:w-1/2">
+    <div class="">
+      <img class="h-auto max-w-full" src="{% static 'images/9_SCENE.png' %}" alt="hero_image">
+    </div>
+  </div>
+
+</div>
+
+<div class="container mx-auto xl:px-0 flex flex-col py-9 gap-3">
+  <div class="flex items-center justify-center">
+    <p class="text-xl p-regular">
+      Nous collaborons avec plus de 300 entreprises de premier plan
+    </p>
+  </div>
+
+  <div class="flex items-center justify-center">
+    <ul class="flex flex-wrap items-center justify-center text-gray-900 dark:text-white">
+      <li>
+        <img class="h-auto max-w-full h-10 w-20 me-12 md:me-10" src="{% static 'companies/slack-logo-svgrepo-com.png' %}" alt="company-logo">
+      </li>
+      <li>
+        <img class="h-auto max-w-full h-10 w-20 me-12 md:me-10" src="{% static 'companies/nintendo.png' %}" alt="company-logo">
+      </li>
+      <li>
+        <img class="h-auto max-w-full h-10 w-20 me-12 md:me-10" src="{% static 'companies/visa.png' %}" alt="company-logo">
+      </li>
+      <li>
+        <img class="h-auto max-w-full h-10 w-20 me-12 md:me-10" src="{% static 'companies/netflix.png' %}" alt="company-logo">
+      </li>
+      <li>
+        <img class="h-auto max-w-full h-10 w-20 me-12 md:me-10" src="{% static 'companies/natGeo.png' %}" alt="company-logo">
+      </li>
+      <li>
+        <img class="h-auto max-w-full h-10 w-20 me-12 md:me-10" src="{% static 'companies/rbnb.png' %}" alt="company-logo">
+      </li>
+      <li>
+        <img class="h-auto max-w-full h-10 w-20 me-12 md:me-10" src="{% static 'companies/ibm.png' %}" alt="company-logo">
+      </li>
+    </ul>
+  </div>
+
+</div>
+
+<!-- Section Cours Populaires -->
+<div class="mx-auto flex flex-col p-9 rounded-tr-3xl rounded-bl-3xl bg-gradient-to-r from-sky-50 from-10% via-blue-100 via-30% to-sky-300 to-90%">
+
+  <h1 class="text-4xl b-text-bold leading-snug tracking-tight text-gray-800 lg:text-4xl lg:leading-tight xl:text-4xl xl:leading-tight">
+    Une large sélection de cours
+  </h1>
+  <p class="py-5 text-base p-regular text-gray-500 lg:text-lg xl:text-base">
+    Choisissez parmi plus de 210 000 vidéos de cours en ligne. <br>De nouveaux cours sont ajoutés tous les mois
+  </p>
+
+  <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+    <!-- Card -->
+    {% for course in courses %}
+    {% with subject=course.subject %}
+    <!-- <h3>
+      <a href="{% url "course_detail" course.slug %}">
+        {{ course.title }}
+      </a>
+    </h3>
+    <p>
+      <a href="{% url "course_list_subject" subject.slug %}">{{ subject }}</a>.
+        {{ course.total_modules }} modules.
+        Instructor: {{ course.owner.get_full_name }}
+    </p> -->
+
+<!--         <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <a href="#">
+              <img class="rounded-t-lg" src="/docs/images/blog/image-1.jpg" alt="" />
+          </a>
+          <div class="p-5">
+              <a href="{% url 'course_detail' course.slug %}">
+                  <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    {{ course.title }}</h5>
+              </a>
+              <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                {{ course.owner.get_full_name }}</p>
+              <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                  Read more
+                  <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                  </svg>
+              </a>
+          </div>
+        </div> -->
+
+        <div class="max-w-sm bg-white rounded-xl shadow dark:bg-gray-800 dark:border-gray-700">
+          <a href="#">
+              <img class="rounded-t-lg" src="https://picsum.photos/400/200" alt="" />
+          </a>
+          <div class="p-5">
+              <a href="#">
+                  <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    {{ course.title }}</h5>
+              </a>
+              <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                {{ course.owner.get_full_name }}</p>
+              <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                  Read more
+                   <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                  </svg>
+              </a>
+          </div>
+        </div>
+      {% endwith %}
+    {% endfor %}
+    <!-- End Card -->
+  </div>
+  
+</div>
+
+<!-- <div class="flex flex-wrap bg-purple-200">
+  <div class="flex items-center w-full bg-yellow-600">Left</div>
+  <div class="flex items-center bg-pink-600">Right</div>
+</div> -->
+
+<p class="text-6xl b-text-bold">Un apprentissage qui vous fait évoluer</p>
+<p class="">Obtenez les compétences pour atteindre vos objectifs et rester compétitif.</p>
+    {% if request.user.is_authenticated %}
+    <h4 class="text-sm p-regular">Salut {{ user.username }} !</h4>
+    {% else %}
+        <h4 class="text-sm p-regular">
+            <a href="{% url 'student_registration' %}">S'inscrire comme étudiant</a>
+        </h4>
+    {% endif %}
+
+  <h1>
+    {% if subject %}
+      {{ subject.title }} courses
+    {% else %}
+      All courses
+    {% endif %}
+  </h1>
+  <div class="contents">
+    <h3>Subjects</h3>
+    <ul id="modules">
+      <li {% if not subject %}class="selected"{% endif %}>
+        <a href="{% url "course_list" %}">All</a>
+      </li>
+      {% for s in subjects %}
+        <li {% if subject == s %}class="selected"{% endif %}>
+          <a href="{% url "course_list_subject" s.slug %}">
+            {{ s.title }}
+            <br><span>{{ s.total_courses }} courses</span>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="module">
+    {% for course in courses %}
+      {% with subject=course.subject %}
+        <h3>
+          <a href="{% url "course_detail" course.slug %}">
+            {{ course.title }}
+          </a>
+        </h3>
+        <p>
+          <a href="{% url "course_list_subject" subject.slug %}">{{ subject }}</a>.
+            {{ course.total_modules }} modules.
+            Instructor: {{ course.owner.get_full_name }}
+        </p>
+      {% endwith %}
+    {% endfor %}
+  </div>
+{% endblock %}
